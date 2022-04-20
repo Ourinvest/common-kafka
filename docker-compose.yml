@@ -47,6 +47,18 @@ services:
     env_file:
       - .env
 
+  consumer:
+    build: .
+    command: tail -f
+    networks:
+      - broker-kafka
+    depends_on:
+      - kafka
+    volumes:
+      - .:/code
+    env_file:
+      - .env
+
 networks:
   broker-kafka:
     driver: bridge
