@@ -21,12 +21,14 @@ async def send_one():
     await producer.start()
     try:
         # produce message
-        msg_id = f'{randint(1, 10000)}'
-        value = {'message_id': msg_id,
-                 'text': 'some text', 'state': randint(1, 100)}
-        print(f'Sending message with value: {value}')
-        value_json = json.dumps(value).encode('utf-8')
-        await producer.send_and_wait(KAFKA_TOPIC, value_json)
+        for x in range(1000):
+            msg_id = f'{randint(1, 10000)}'
+            value = {'message_id': msg_id,
+                     'text': 'some text', 'state': randint(1, 100)}
+            print(f'Sending message with value: {value}')
+            value_json = json.dumps(value).encode('utf-8')
+
+            await producer.send_and_wait(KAFKA_TOPIC, value_json)
     finally:
         # wait for all pending messages to be delivered or expire.
         await producer.stop()
