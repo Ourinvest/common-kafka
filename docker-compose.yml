@@ -33,8 +33,7 @@ services:
     depends_on:
       - zookeeper
       - kafka
-      - producer
-      - consumer
+      - producer_consumer
     ports:
       - "9021:9021"
     environment:
@@ -45,30 +44,7 @@ services:
       CONFLUENT_METRICS_TOPIC_REPLICATION: 1
       PORT: 9021
 
-  # kafdrop:
-  #   image: obsidiandynamics/kafdrop:latest
-  #   networks:
-  #     - broker-kafka
-  #   depends_on:
-  #     - kafka
-  #   ports:
-  #     - 19000:9000
-  #   environment:
-  #     KAFKA_BROKERCONNECT: kafka:29092
-
-  producer:
-    build: .
-    command: tail -f
-    networks:
-      - broker-kafka
-    depends_on:
-      - kafka
-    volumes:
-      - .:/code
-    env_file:
-      - .env
-
-  consumer:
+  producer_consumer:
     build: .
     command: tail -f
     networks:
