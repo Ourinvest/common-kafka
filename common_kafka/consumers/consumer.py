@@ -97,9 +97,9 @@ class AIOConsumer:
         try:
             # consume messages
             async for msg in self._consumer:
-                # x = json.loads(msg.value)
-                message = str(msg.value, encoding="utf-8")
-                print(f"Consumed msg value: {message}")
+                message_str = str(msg.value, encoding="utf-8")
+                message_json = json.loads(message_str)
+                print(f"Consumed msg value - BODY: {message_json['body']}")
 
                 # update the API state
                 self._update_state(msg)
