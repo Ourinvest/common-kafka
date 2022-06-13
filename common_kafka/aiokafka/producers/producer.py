@@ -2,10 +2,11 @@ from aiokafka import AIOKafkaProducer
 import asyncio
 import json
 
+
 class AIOProducer:
     def __init__(self, server, loop=None):
         self._loop = loop or asyncio.get_event_loop()
-        self._producer = AIOKafkaProducer(bootstrap_servers = server)
+        self._producer = AIOKafkaProducer(bootstrap_servers=server)
     
     async def close(self):
         await self._producer.stop()

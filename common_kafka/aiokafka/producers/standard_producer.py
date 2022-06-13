@@ -8,7 +8,7 @@ from random import randint
 # env variables
 KAFKA_TOPIC = os.getenv('KAFKA_TOPIC')
 KAFKA_BOOTSTRAP_SERVERS = os.getenv(
-    'KAFKA_BOOTSTRAP_SERVERS', 'kafka:29092')
+    'KAFKA_BOOTSTRAP_SERVERS', 'brr:29092')
 
 # global variables
 loop = asyncio.get_event_loop()
