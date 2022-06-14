@@ -23,9 +23,9 @@ class KafkaConsumerCustom:
             value_deserializer=lambda x: json.loads(x),
         )
 
-    def get_consumer(self):
+    def get_consumer(self) -> KafkaConsumer:
         return self.__consumer
 
-    def close(self):
+    def close(self) -> None:
         self.__consumer.close()
 
