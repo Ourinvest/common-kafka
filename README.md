@@ -3,16 +3,32 @@ Library for Apache Kafka common use between services. Basically Setups a custom 
 and a custom consumer
 
 ## Installation
-
+### SSH
 The following command will install from the main branch. **Be careful**.
 
-`pip install git+https://github.com/Ourinvest/common-kafka.git`
+`pip install git+ssh://git@github.com/Ourinvest/common-kafka.git`
 
 You can choose manually the branch too, using:
 
-`pip install git+https://github.com/Ourinvest/common-kafka.git@branch_name`
+`pip install git+ssh://git@github.com/Ourinvest/common-kafka.git@development`
 
 As this is private repository, correct authentication will be required (a.k.a Token). 
+
+### HTTPS
+
+Create a token 
+[here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token), 
+or get one from AWS Secret Manager
+
+```bash
+pip install git+https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/Ourinvest/common-kafka.git
+```
+
+Or, for specfic branch:
+
+```bash
+pip install git+https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/Ourinvest/common-kafka.git@${BRANCH_NAME}
+```
 
 ## Basic usage
 

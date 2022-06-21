@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "common-kafka"
+name = "commonKafka"
 version = "0.1.0"
 description = ""
 authors = ["N"]
