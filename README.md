@@ -12,6 +12,8 @@ You can choose manually the branch too, using:
 
 `pip install git+https://github.com/Ourinvest/common-kafka.git@branch_name`
 
+As this is private repository, correct authentication will be required (a.k.a Token). 
+
 ## Basic usage
 
 ### Producer
